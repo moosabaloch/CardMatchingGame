@@ -27,6 +27,8 @@
 		F4332F9926D1A643004AF43E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332F9726D1A643004AF43E /* Card.swift */; };
 		F4332F9C26D1B47E004AF43E /* CardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332F9B26D1B47E004AF43E /* CardRepository.swift */; };
 		F4332F9D26D1B47E004AF43E /* CardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332F9B26D1B47E004AF43E /* CardRepository.swift */; };
+		F4332F9F26D1C375004AF43E /* Numeric+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332F9E26D1C375004AF43E /* Numeric+Ext.swift */; };
+		F4332FA026D1C375004AF43E /* Numeric+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332F9E26D1C375004AF43E /* Numeric+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,7 @@
 		F4332F9426D1A251004AF43E /* GameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVM.swift; sourceTree = "<group>"; };
 		F4332F9726D1A643004AF43E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F4332F9B26D1B47E004AF43E /* CardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepository.swift; sourceTree = "<group>"; };
+		F4332F9E26D1C375004AF43E /* Numeric+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numeric+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +178,7 @@
 				F4332F9026D195A0004AF43E /* Constants.swift */,
 				F4332F8E26D19560004AF43E /* UIViewController+Ext.swift */,
 				F4332F9226D1A136004AF43E /* UIView+Ext.swift */,
+				F4332F9E26D1C375004AF43E /* Numeric+Ext.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -324,6 +328,7 @@
 				F4332F9326D1A136004AF43E /* UIView+Ext.swift in Sources */,
 				F4332F8C26D18FA3004AF43E /* SetTimerVC.swift in Sources */,
 				F4332F5A26D1854D004AF43E /* GameVC.swift in Sources */,
+				F4332F9F26D1C375004AF43E /* Numeric+Ext.swift in Sources */,
 				F4332F8F26D19560004AF43E /* UIViewController+Ext.swift in Sources */,
 				F4332F5626D1854D004AF43E /* AppDelegate.swift in Sources */,
 				F4332F9126D195A0004AF43E /* Constants.swift in Sources */,
@@ -339,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4332FA026D1C375004AF43E /* Numeric+Ext.swift in Sources */,
 				F4332F9626D1A251004AF43E /* GameVM.swift in Sources */,
 				F4332F9D26D1B47E004AF43E /* CardRepository.swift in Sources */,
 				F4332F9926D1A643004AF43E /* Card.swift in Sources */,

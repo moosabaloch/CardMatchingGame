@@ -23,6 +23,11 @@ class GameVM {
     private let cardRepository: CardRepository
     var cardArray: [Card] = []
     private var timer: Timer?
+    private var userScore: Int = 0 {
+        didSet {
+            self.delegate.updateScore(newScore: self.userScore.toString)
+        }
+    }
     private var firstFlippedCardIndexPath: IndexPath?
     private var remainingTimeInMillis: Float = 60  // 60 seconds default
     private lazy var dcFormatter: DateComponentsFormatter = {
@@ -40,6 +45,7 @@ class GameVM {
     
     
     func scheduleTimer() {
+        self.userScore = 0
         self.timer?.invalidate()
         self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countdown), userInfo:  nil, repeats: true)
         self.remainingTimeInMillis = 60
@@ -59,6 +65,7 @@ class GameVM {
         self.cardArray = cardRepository.getCardData()
         self.scheduleTimer()
         self.delegate.reloadItems()
+        self.userScore = 0
     }
     
     func didSelectItemAt(indexPath: IndexPath) {
@@ -85,10 +92,14 @@ class GameVM {
             cardTwo.isMatched = true
             self.delegate.cardsMatched(indexPaths: [firstFlippedCardIndexPath!, secondFlippedCardIndexPath])
             checkGameState()
+            self.userScore += 5
         } else {
             cardOne.isFlipped = false
             cardTwo.isFlipped = false
             self.delegate.flipBackCards(indexPaths: [firstFlippedCardIndexPath!, secondFlippedCardIndexPath])
+            if self.userScore >= 2 {
+                self.userScore -= 2
+            }
         }
         firstFlippedCardIndexPath = nil
     }
