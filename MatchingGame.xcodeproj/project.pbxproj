@@ -20,6 +20,13 @@
 		F4332F8C26D18FA3004AF43E /* SetTimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332F8B26D18FA3004AF43E /* SetTimerVC.swift */; };
 		F4332F8F26D19560004AF43E /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332F8E26D19560004AF43E /* UIViewController+Ext.swift */; };
 		F4332F9126D195A0004AF43E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332F9026D195A0004AF43E /* Constants.swift */; };
+		F4332F9326D1A136004AF43E /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332F9226D1A136004AF43E /* UIView+Ext.swift */; };
+		F4332F9526D1A251004AF43E /* GameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332F9426D1A251004AF43E /* GameVM.swift */; };
+		F4332F9626D1A251004AF43E /* GameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332F9426D1A251004AF43E /* GameVM.swift */; };
+		F4332F9826D1A643004AF43E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332F9726D1A643004AF43E /* Card.swift */; };
+		F4332F9926D1A643004AF43E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332F9726D1A643004AF43E /* Card.swift */; };
+		F4332F9C26D1B47E004AF43E /* CardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332F9B26D1B47E004AF43E /* CardRepository.swift */; };
+		F4332F9D26D1B47E004AF43E /* CardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332F9B26D1B47E004AF43E /* CardRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +66,10 @@
 		F4332F8B26D18FA3004AF43E /* SetTimerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimerVC.swift; sourceTree = "<group>"; };
 		F4332F8E26D19560004AF43E /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		F4332F9026D195A0004AF43E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F4332F9226D1A136004AF43E /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		F4332F9426D1A251004AF43E /* GameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVM.swift; sourceTree = "<group>"; };
+		F4332F9726D1A643004AF43E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		F4332F9B26D1B47E004AF43E /* CardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,8 +162,8 @@
 		F4332F8A26D18B7A004AF43E /* mainScene */ = {
 			isa = PBXGroup;
 			children = (
+				F4332F9A26D1B455004AF43E /* gameScreen */,
 				F4332F5B26D1854D004AF43E /* Main.storyboard */,
-				F4332F5926D1854D004AF43E /* GameVC.swift */,
 				F4332F8B26D18FA3004AF43E /* SetTimerVC.swift */,
 			);
 			path = mainScene;
@@ -163,8 +174,20 @@
 			children = (
 				F4332F9026D195A0004AF43E /* Constants.swift */,
 				F4332F8E26D19560004AF43E /* UIViewController+Ext.swift */,
+				F4332F9226D1A136004AF43E /* UIView+Ext.swift */,
 			);
 			path = extensions;
+			sourceTree = "<group>";
+		};
+		F4332F9A26D1B455004AF43E /* gameScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F4332F5926D1854D004AF43E /* GameVC.swift */,
+				F4332F9426D1A251004AF43E /* GameVM.swift */,
+				F4332F9726D1A643004AF43E /* Card.swift */,
+				F4332F9B26D1B47E004AF43E /* CardRepository.swift */,
+			);
+			path = gameScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,12 +321,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4332F9326D1A136004AF43E /* UIView+Ext.swift in Sources */,
 				F4332F8C26D18FA3004AF43E /* SetTimerVC.swift in Sources */,
 				F4332F5A26D1854D004AF43E /* GameVC.swift in Sources */,
 				F4332F8F26D19560004AF43E /* UIViewController+Ext.swift in Sources */,
 				F4332F5626D1854D004AF43E /* AppDelegate.swift in Sources */,
 				F4332F9126D195A0004AF43E /* Constants.swift in Sources */,
 				F4332F8726D18B66004AF43E /* CardCVCell.swift in Sources */,
+				F4332F9826D1A643004AF43E /* Card.swift in Sources */,
+				F4332F9C26D1B47E004AF43E /* CardRepository.swift in Sources */,
+				F4332F9526D1A251004AF43E /* GameVM.swift in Sources */,
 				F4332F5826D1854D004AF43E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +339,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4332F9626D1A251004AF43E /* GameVM.swift in Sources */,
+				F4332F9D26D1B47E004AF43E /* CardRepository.swift in Sources */,
+				F4332F9926D1A643004AF43E /* Card.swift in Sources */,
 				F4332F6D26D18552004AF43E /* MatchingGameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

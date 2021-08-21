@@ -11,18 +11,78 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CardCVCell" customModule="MatchingGame" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="497" height="392"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="497" height="392"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8dN-AH-jkI">
+                        <rect key="frame" x="0.0" y="0.0" width="497" height="392"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_background" translatesAutoresizingMaskIntoConstraints="NO" id="eP9-ym-HIA">
+                                <rect key="frame" x="0.0" y="0.0" width="497" height="392"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eP9-ym-HIA" firstAttribute="top" secondItem="8dN-AH-jkI" secondAttribute="top" id="4eJ-yW-B13"/>
+                            <constraint firstAttribute="trailing" secondItem="eP9-ym-HIA" secondAttribute="trailing" id="GwR-nI-Gth"/>
+                            <constraint firstAttribute="bottom" secondItem="eP9-ym-HIA" secondAttribute="bottom" id="OlX-pP-8Wa"/>
+                            <constraint firstItem="eP9-ym-HIA" firstAttribute="leading" secondItem="8dN-AH-jkI" secondAttribute="leading" id="lmt-mc-6Rv"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uy0-NB-yyF">
+                        <rect key="frame" x="0.0" y="0.0" width="497" height="392"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🙃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTw-F7-qMg">
+                                <rect key="frame" x="214" y="158" width="69" height="76.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="vTw-F7-qMg" firstAttribute="centerX" secondItem="Uy0-NB-yyF" secondAttribute="centerX" id="Wjc-zl-s8u"/>
+                            <constraint firstItem="vTw-F7-qMg" firstAttribute="centerY" secondItem="Uy0-NB-yyF" secondAttribute="centerY" id="ZeR-5k-0gY"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" systemColor="systemOrangeColor"/>
-            <point key="canvasLocation" x="139" y="134"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="8dN-AH-jkI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="00G-3j-DyC"/>
+                <constraint firstAttribute="trailing" secondItem="8dN-AH-jkI" secondAttribute="trailing" id="AgS-fV-yQk"/>
+                <constraint firstAttribute="trailing" secondItem="Uy0-NB-yyF" secondAttribute="trailing" id="CGP-BQ-VWl"/>
+                <constraint firstAttribute="bottom" secondItem="Uy0-NB-yyF" secondAttribute="bottom" id="CGP-gb-Jrq"/>
+                <constraint firstItem="Uy0-NB-yyF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="FH4-hp-1ma"/>
+                <constraint firstItem="8dN-AH-jkI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Kp1-kK-Arq"/>
+                <constraint firstAttribute="bottom" secondItem="8dN-AH-jkI" secondAttribute="bottom" id="VPB-Bv-XZu"/>
+                <constraint firstItem="Uy0-NB-yyF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jOW-7Y-Mol"/>
+            </constraints>
+            <size key="customSize" width="497" height="392"/>
+            <connections>
+                <outlet property="backView" destination="8dN-AH-jkI" id="5GD-6x-G04"/>
+                <outlet property="emojiLabel" destination="vTw-F7-qMg" id="kuc-Eb-deG"/>
+                <outlet property="frontView" destination="Uy0-NB-yyF" id="lzG-n7-deZ"/>
+            </connections>
+            <point key="canvasLocation" x="461.59420289855075" y="248.4375"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="card_background" width="600" height="424"/>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
