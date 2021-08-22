@@ -119,9 +119,16 @@ class GameVM {
             if remainingTimeInMillis > 0 {
                 return
             }
-            self.delegate.showAlert(title: .timeOver,
-                                    message: .youLostTheGame,
-                                    actionTitle: .tryAgain)
+            for (index, card) in self.cardArray.enumerated() {
+                if !card.isFlipped {
+                    self.delegate.flipToFront(indexPath: IndexPath(row: index, section: 0))
+                }
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.delegate.showAlert(title: .timeOver,
+                                        message: .youLostTheGame,
+                                        actionTitle: .tryAgain)
+            }
         }
     }
 }
