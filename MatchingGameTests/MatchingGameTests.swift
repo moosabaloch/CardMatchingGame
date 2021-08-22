@@ -32,7 +32,6 @@ class MatchingGameTests: XCTestCase {
         XCTAssertEqual(matchedCards.filter({$0.row == secondCard.row}).count,1)
     }
     
-    
     var newScoreInt = 0
     func testScoreChange() throws {
         gameViewModel.restartGame()

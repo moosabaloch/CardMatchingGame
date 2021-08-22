@@ -47,7 +47,6 @@ class GameVM {
         self.defaults = defaults
     }
     
-    
     func scheduleTimer() {
         self.userScore = 0
         self.timer?.invalidate()

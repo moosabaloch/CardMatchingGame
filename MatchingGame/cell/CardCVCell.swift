@@ -24,7 +24,6 @@ class CardCVCell: UICollectionViewCell {
         }
     }
     
-    
     private func updateCardData() {
         guard let card = self.card else { return }
         if card.isMatched {

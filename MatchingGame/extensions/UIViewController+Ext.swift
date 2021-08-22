@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 // MARK: Init VC from Storyboards with viewController static func instatiate
 protocol Storyboarded {
     /// This function initialise the ViewController based on it's identifier from the storyboard you specify
