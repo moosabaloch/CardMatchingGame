@@ -24,10 +24,10 @@ extension UIImage {
 }
 
 extension String {
-    static let congrats = "Congrats!"
-    static let playAgain = "Play Again"
-    static let timeOver = "Time Over"
-    static let youLostTheGame = "You lost the game."
-    static let tryAgain = "Try Again"
-    static func youWonTheGame(withScore score: String) -> String { return "You Won The Game!\nYour Score is \(score)." }
+    public static let congrats = "Congrats!"
+    public static let playAgain = "Play Again"
+    public static let timeOver = "Time Over"
+    public static let youLostTheGame = "You lost the game."
+    public static let tryAgain = "Try Again"
+    public static func youWonTheGame(withScore score: String) -> String { return "You Won The Game!\nYour Score is \(score)." }
 }

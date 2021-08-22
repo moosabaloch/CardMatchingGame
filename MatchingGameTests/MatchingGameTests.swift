@@ -9,25 +9,92 @@ import XCTest
 @testable import MatchingGame
 
 class MatchingGameTests: XCTestCase {
-
+    var gameViewModel: GameVM!
+    var cardMatchExpectation: XCTestExpectation?
+    var scoreChangeExpectations: XCTestExpectation?
+    var cardMismatchExpectation: XCTestExpectation?
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        gameViewModel = GameVM(delegate: self, cardRepository: CardRepository(isMocked: true, numberOfCards: 16), defaults: Defaults.shared)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    override func tearDownWithError() throws {}
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    var matchedCards:[IndexPath] = []
+    func testCardMathing() throws {
+        gameViewModel.restartGame()
+        let firstCard = IndexPath(row: 0, section: 0)
+        let secondCard = IndexPath(row: 1, section: 0)
+        cardMatchExpectation = expectation(description: "Card 0 and Card 1 Matches")
+        gameViewModel.didSelectItemAt(indexPath: firstCard)
+        gameViewModel.didSelectItemAt(indexPath: secondCard)
+        waitForExpectations(timeout: 1)
+        XCTAssertEqual(matchedCards.filter({$0.row == firstCard.row}).count,1)
+        XCTAssertEqual(matchedCards.filter({$0.row == secondCard.row}).count,1)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    
+    var newScoreInt = 0
+    func testScoreChange() throws {
+        gameViewModel.restartGame()
+        // Score increment
+        scoreChangeExpectations = expectation(description: "Score Update on Card Match")
+        let firstCard = IndexPath(row: 0, section: 0)
+        let secondCard = IndexPath(row: 1, section: 0)
+        gameViewModel.didSelectItemAt(indexPath: firstCard)
+        gameViewModel.didSelectItemAt(indexPath: secondCard)
+        waitForExpectations(timeout: 1)
+        XCTAssertEqual(newScoreInt, 5) // 5 for 1 match
+        // Score decrement
+        scoreChangeExpectations = expectation(description: "Score Update on Card Match")
+        let thirdCard = IndexPath(row: 2, section: 0)
+        let fifthCard = IndexPath(row: 4, section: 0)
+        gameViewModel.didSelectItemAt(indexPath: thirdCard)
+        gameViewModel.didSelectItemAt(indexPath: fifthCard)
+        waitForExpectations(timeout: 1)
+        XCTAssertEqual(newScoreInt, 3) // 5 for 1 match -> -2 for no match
     }
+    
+    var cardsFlipBack: [IndexPath] = []
+    func testFlipBackMismatchCards() {
+        self.gameViewModel.restartGame()
+        cardMismatchExpectation = expectation(description: "Card mismatch flip back")
+        let thirdCard = IndexPath(row: 2, section: 0)
+        let fifthCard = IndexPath(row: 4, section: 0)
+        gameViewModel.didSelectItemAt(indexPath: thirdCard)
+        gameViewModel.didSelectItemAt(indexPath: fifthCard)
+        waitForExpectations(timeout: 1)
+        XCTAssertEqual(cardsFlipBack.filter({$0.row == thirdCard.row}).count,1)
+        XCTAssertEqual(cardsFlipBack.filter({$0.row == fifthCard.row}).count,1)
+    }
+}
 
+extension MatchingGameTests: GameVMDelegate {
+    func updateCountdownTimer(timeString: String, warning: Bool) {
+        
+    }
+    
+    func updateScore(newScore: String) {
+        self.newScoreInt = Int(newScore) ?? 0
+        self.scoreChangeExpectations?.fulfill()
+        self.scoreChangeExpectations = nil
+    }
+    
+    func flipToFront(indexPath: IndexPath) {
+        
+    }
+    
+    func flipBackCards(indexPaths: [IndexPath]) {
+        self.cardsFlipBack = indexPaths
+        self.cardMismatchExpectation?.fulfill()
+        self.cardMismatchExpectation = nil
+    }
+    
+    func cardsMatched(indexPaths: [IndexPath]) {
+        self.matchedCards = indexPaths
+        self.cardMatchExpectation?.fulfill()
+        self.cardMatchExpectation = nil
+    }
+    
+    func reloadItems() {}
+    func showAlert(title: String, message: String, actionTitle: String) {}
 }
