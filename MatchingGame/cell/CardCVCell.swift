@@ -14,6 +14,8 @@ class CardCVCell: UICollectionViewCell {
     static let name = "CardCVCell"
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.emojiLabel.minimumScaleFactor = 0.5
+        self.emojiLabel.adjustsFontSizeToFitWidth = true
     }
     
     var card: Card? {

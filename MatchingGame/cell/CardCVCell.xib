@@ -40,8 +40,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uy0-NB-yyF">
                         <rect key="frame" x="0.0" y="0.0" width="497" height="392"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🙃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTw-F7-qMg">
-                                <rect key="frame" x="214" y="158" width="69" height="76.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🙃" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTw-F7-qMg">
+                                <rect key="frame" x="0.0" y="0.0" width="497" height="392"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="64"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -49,8 +49,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vTw-F7-qMg" secondAttribute="trailing" id="2lv-qC-a1e"/>
+                            <constraint firstItem="vTw-F7-qMg" firstAttribute="leading" secondItem="Uy0-NB-yyF" secondAttribute="leading" id="CqD-Pg-eBy"/>
+                            <constraint firstItem="vTw-F7-qMg" firstAttribute="top" secondItem="Uy0-NB-yyF" secondAttribute="top" id="KEx-gJ-mcZ"/>
                             <constraint firstItem="vTw-F7-qMg" firstAttribute="centerX" secondItem="Uy0-NB-yyF" secondAttribute="centerX" id="Wjc-zl-s8u"/>
                             <constraint firstItem="vTw-F7-qMg" firstAttribute="centerY" secondItem="Uy0-NB-yyF" secondAttribute="centerY" id="ZeR-5k-0gY"/>
+                            <constraint firstAttribute="bottom" secondItem="vTw-F7-qMg" secondAttribute="bottom" id="ak8-oc-CER"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

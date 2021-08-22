@@ -9,7 +9,7 @@ import Foundation
 
 class CardRepository {
     private let isMocked: Bool
-    private let numberOfCards: Int
+    var numberOfCards: Int
     init(isMocked: Bool = false, numberOfCards: Int = 16) {
         self.isMocked = isMocked
         self.numberOfCards = numberOfCards

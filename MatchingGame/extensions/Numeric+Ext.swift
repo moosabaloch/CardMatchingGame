@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
 extension Int {
     var toString: String { return String(self) }
+    var toCGFloat: CGFloat { return CGFloat(self) }
 }

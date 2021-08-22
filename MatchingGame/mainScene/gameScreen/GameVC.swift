@@ -26,7 +26,7 @@ class GameVC: UIViewController {
     private func setupCollectionView() {
         let spacing: CGFloat = 8
         let layout = UICollectionViewFlowLayout()
-        let cellMaxWH = (self.collectionView.bounds.width / 4) - spacing
+        let cellMaxWH = (self.collectionView.bounds.width / self.viewModel.gridCount.toCGFloat) - spacing
         layout.itemSize = CGSize(width: cellMaxWH, height: cellMaxWH)
         layout.minimumInteritemSpacing = spacing / 2
         layout.minimumLineSpacing = spacing / 2

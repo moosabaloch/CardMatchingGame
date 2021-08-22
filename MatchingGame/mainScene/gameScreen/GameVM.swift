@@ -20,6 +20,7 @@ protocol GameVMDelegate: NSObject {
 class GameVM {
     
     unowned var delegate: GameVMDelegate
+    let gridCount = 4
     private let cardRepository: CardRepository
     private let defaults: Defaults
     var cardArray: [Card] = []
@@ -40,6 +41,7 @@ class GameVM {
     
     init(delegate: GameVMDelegate, cardRepository: CardRepository, defaults: Defaults) {
         self.delegate = delegate
+        cardRepository.numberOfCards = gridCount * gridCount
         self.cardRepository = cardRepository
         self.cardArray = cardRepository.getCardData()
         self.defaults = defaults
