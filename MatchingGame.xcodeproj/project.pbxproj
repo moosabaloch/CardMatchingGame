@@ -29,6 +29,8 @@
 		F4332F9D26D1B47E004AF43E /* CardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332F9B26D1B47E004AF43E /* CardRepository.swift */; };
 		F4332F9F26D1C375004AF43E /* Numeric+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332F9E26D1C375004AF43E /* Numeric+Ext.swift */; };
 		F4332FA026D1C375004AF43E /* Numeric+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332F9E26D1C375004AF43E /* Numeric+Ext.swift */; };
+		F4332FA326D1C64D004AF43E /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332FA226D1C64D004AF43E /* Defaults.swift */; };
+		F4332FA426D1C64D004AF43E /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4332FA226D1C64D004AF43E /* Defaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,7 @@
 		F4332F9726D1A643004AF43E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F4332F9B26D1B47E004AF43E /* CardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepository.swift; sourceTree = "<group>"; };
 		F4332F9E26D1C375004AF43E /* Numeric+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numeric+Ext.swift"; sourceTree = "<group>"; };
+		F4332FA226D1C64D004AF43E /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,7 @@
 		F4332F5426D1854D004AF43E /* MatchingGame */ = {
 			isa = PBXGroup;
 			children = (
+				F4332FA126D1C63C004AF43E /* utils */,
 				F4332F8D26D19543004AF43E /* extensions */,
 				F4332F8A26D18B7A004AF43E /* mainScene */,
 				F4332F8926D18B6C004AF43E /* cell */,
@@ -192,6 +196,14 @@
 				F4332F9B26D1B47E004AF43E /* CardRepository.swift */,
 			);
 			path = gameScreen;
+			sourceTree = "<group>";
+		};
+		F4332FA126D1C63C004AF43E /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				F4332FA226D1C64D004AF43E /* Defaults.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4332F9326D1A136004AF43E /* UIView+Ext.swift in Sources */,
+				F4332FA326D1C64D004AF43E /* Defaults.swift in Sources */,
 				F4332F8C26D18FA3004AF43E /* SetTimerVC.swift in Sources */,
 				F4332F5A26D1854D004AF43E /* GameVC.swift in Sources */,
 				F4332F9F26D1C375004AF43E /* Numeric+Ext.swift in Sources */,
@@ -347,6 +360,7 @@
 				F4332FA026D1C375004AF43E /* Numeric+Ext.swift in Sources */,
 				F4332F9626D1A251004AF43E /* GameVM.swift in Sources */,
 				F4332F9D26D1B47E004AF43E /* CardRepository.swift in Sources */,
+				F4332FA426D1C64D004AF43E /* Defaults.swift in Sources */,
 				F4332F9926D1A643004AF43E /* Card.swift in Sources */,
 				F4332F6D26D18552004AF43E /* MatchingGameTests.swift in Sources */,
 			);

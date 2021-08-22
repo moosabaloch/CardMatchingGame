@@ -150,9 +150,81 @@
                     <view key="view" contentMode="scaleToFill" id="hLd-Nc-tvz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ZfI-gv-rn8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XmD-Ro-hVI">
+                                <rect key="frame" x="0.0" y="345" width="414" height="216"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </datePicker>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="JWm-f9-uvT">
+                                <rect key="frame" x="83" y="577" width="248" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REd-l2-0Gl">
+                                        <rect key="frame" x="0.0" y="0.0" width="116" height="45"/>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="actionOpenSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ENj-Mu-nN2"/>
+                                            <action selector="buttonActions:" destination="KZM-99-m6c" eventType="touchUpInside" id="3PY-KR-pUh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFr-bj-DWR">
+                                        <rect key="frame" x="132" y="0.0" width="116" height="45"/>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Update">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="actionRestart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wE3-Sk-xqM"/>
+                                            <action selector="buttonActions:" destination="KZM-99-m6c" eventType="touchUpInside" id="bbP-Q2-XBL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="sip-WN-gfj"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="aca-n2-pUz"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aca-n2-pUz" firstAttribute="trailing" secondItem="ZfI-gv-rn8" secondAttribute="trailing" id="0Os-jj-2uv"/>
+                            <constraint firstItem="JWm-f9-uvT" firstAttribute="centerX" secondItem="aca-n2-pUz" secondAttribute="centerX" id="4NQ-TV-nWq"/>
+                            <constraint firstAttribute="bottom" secondItem="ZfI-gv-rn8" secondAttribute="bottom" id="9Y5-hD-TUi"/>
+                            <constraint firstItem="JWm-f9-uvT" firstAttribute="top" secondItem="XmD-Ro-hVI" secondAttribute="bottom" constant="16" id="KT1-jU-0pE"/>
+                            <constraint firstItem="aca-n2-pUz" firstAttribute="trailing" secondItem="XmD-Ro-hVI" secondAttribute="trailing" id="Te9-WQ-aHz"/>
+                            <constraint firstItem="XmD-Ro-hVI" firstAttribute="leading" secondItem="aca-n2-pUz" secondAttribute="leading" id="gj5-cx-BZh"/>
+                            <constraint firstItem="ZfI-gv-rn8" firstAttribute="leading" secondItem="aca-n2-pUz" secondAttribute="leading" id="s74-gV-EbT"/>
+                            <constraint firstItem="XmD-Ro-hVI" firstAttribute="centerY" secondItem="aca-n2-pUz" secondAttribute="centerY" id="vvY-vf-bKq"/>
+                            <constraint firstItem="JWm-f9-uvT" firstAttribute="width" secondItem="hLd-Nc-tvz" secondAttribute="width" multiplier="0.6" id="w4v-Z2-0iP"/>
+                            <constraint firstItem="ZfI-gv-rn8" firstAttribute="top" secondItem="hLd-Nc-tvz" secondAttribute="top" id="wuJ-5S-DAn"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="REd-l2-0Gl" id="XaI-rV-5Ui"/>
+                        <outlet property="timePicker" destination="XmD-Ro-hVI" id="Xgn-4c-5VH"/>
+                        <outlet property="updateButton" destination="tFr-bj-DWR" id="zgY-Gp-VnW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bSd-UD-5Zq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

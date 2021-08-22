@@ -13,11 +13,12 @@ class GameVC: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     lazy var viewModel: GameVM = {
-        GameVM(delegate: self, cardRepository: CardRepository())
+        GameVM(delegate: self, cardRepository: CardRepository(), defaults: Defaults.shared)
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setNavigationBarTransparent(withIamgeIcon: UIImage.icon ?? UIImage())
         self.setupCollectionView()
         self.viewModel.scheduleTimer()
     }
@@ -39,10 +40,10 @@ class GameVC: UIViewController {
     @IBAction func actionRestart(_ sender: Any) {
         self.viewModel.restartGame()
     }
+    
     @IBAction func actionOpenSetting(_ sender: Any) {
-    }
-    func openSettings() {
         let timerVC = SetTimerVC.instantiate(storyboard: .main)
+        timerVC.delegate = self
         self.navigationController?.pushViewController(timerVC, animated: true)
     }
 }
@@ -66,6 +67,7 @@ extension GameVC: UICollectionViewDelegate, UICollectionViewDataSource {
         self.viewModel.didSelectItemAt(indexPath: indexPath)
     }
 }
+
 // MARK: GameVMDelegate
 extension GameVC: GameVMDelegate {
     func flipBackCards(indexPaths: [IndexPath]) {
@@ -84,11 +86,9 @@ extension GameVC: GameVMDelegate {
         self.collectionView.reloadData()
     }
     
-    func showAlert(title: String, message: String) {
+    func showAlert(title: String, message: String, actionTitle: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(alertAction)
-        let alertAction2 = UIAlertAction(title: "Retry", style: .default, handler: { [weak self] _ in
+        let alertAction2 = UIAlertAction(title: actionTitle, style: .default, handler: { [weak self] _ in
             self?.viewModel.restartGame()
         })
         alert.addAction(alertAction2)
@@ -106,5 +106,12 @@ extension GameVC: GameVMDelegate {
     
     func flipToFront(indexPath: IndexPath) {
         (collectionView.cellForItem(at: indexPath) as? CardCVCell)?.flipToFront()
+    }
+}
+
+// MARK: SetTimerVCDelegate
+extension GameVC: SetTimerVCDelegate {
+    func didUpdateTimer() {
+        self.viewModel.restartGame()
     }
 }

@@ -19,8 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         let rootNavVC = UINavigationController()
-        rootNavVC.isNavigationBarHidden = true
-        rootNavVC.viewControllers = [GameVC.instantiate(storyboard: .main)]
+        var vcArray: [UIViewController] = [GameVC.instantiate(storyboard: .main)]
+        if Defaults.shared.getCountDownTimerDefaultTime() == nil {
+            vcArray.append(SetTimerVC.instantiate(storyboard: .main))
+        }
+        rootNavVC.viewControllers = vcArray
         window.rootViewController = rootNavVC
         self.window = window
         window.makeKeyAndVisible()

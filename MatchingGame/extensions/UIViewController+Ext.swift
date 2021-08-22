@@ -36,3 +36,16 @@ extension Storyboarded where Self: UIViewController {
 }
 
 extension UIViewController: Storyboarded {} // Since all of VC's are using storyboard, No Need to implement on all VC's
+
+extension UIViewController {
+    func setNavigationBarTransparent(withIamgeIcon image: UIImage) {
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = image
+        navigationItem.titleView = imageView
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+}

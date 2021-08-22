@@ -14,13 +14,14 @@ protocol GameVMDelegate: NSObject {
     func flipBackCards(indexPaths: [IndexPath])
     func cardsMatched(indexPaths: [IndexPath])
     func reloadItems()
-    func showAlert(title: String, message: String)
+    func showAlert(title: String, message: String, actionTitle: String)
 }
 
 class GameVM {
     
     unowned var delegate: GameVMDelegate
     private let cardRepository: CardRepository
+    private let defaults: Defaults
     var cardArray: [Card] = []
     private var timer: Timer?
     private var userScore: Int = 0 {
@@ -37,10 +38,11 @@ class GameVM {
         return formatter
     }()
     
-    init(delegate: GameVMDelegate, cardRepository: CardRepository) {
+    init(delegate: GameVMDelegate, cardRepository: CardRepository, defaults: Defaults) {
         self.delegate = delegate
         self.cardRepository = cardRepository
         self.cardArray = cardRepository.getCardData()
+        self.defaults = defaults
     }
     
     
@@ -48,7 +50,7 @@ class GameVM {
         self.userScore = 0
         self.timer?.invalidate()
         self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countdown), userInfo:  nil, repeats: true)
-        self.remainingTimeInMillis = 60
+        self.remainingTimeInMillis = Float(self.defaults.getCountDownTimerDefaultTime() ?? 60)
     }
     
     @objc func countdown() {
@@ -91,8 +93,8 @@ class GameVM {
             cardOne.isMatched = true
             cardTwo.isMatched = true
             self.delegate.cardsMatched(indexPaths: [firstFlippedCardIndexPath!, secondFlippedCardIndexPath])
-            checkGameState()
             self.userScore += 5
+            checkGameState()
         } else {
             cardOne.isFlipped = false
             cardTwo.isFlipped = false
@@ -109,12 +111,16 @@ class GameVM {
             if remainingTimeInMillis > 0 {
                 timer?.invalidate()
             }
-            self.delegate.showAlert(title: "Congrats!", message: "You Won The Game")
+            self.delegate.showAlert(title: .congrats,
+                                    message: .youWonTheGame(withScore: self.userScore.toString),
+                                    actionTitle: .playAgain)
         } else {
             if remainingTimeInMillis > 0 {
                 return
             }
-            self.delegate.showAlert(title: "Time Over", message: "You Lost")
+            self.delegate.showAlert(title: .timeOver,
+                                    message: .youLostTheGame,
+                                    actionTitle: .tryAgain)
         }
     }
 }
