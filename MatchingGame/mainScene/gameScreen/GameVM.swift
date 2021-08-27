@@ -21,7 +21,7 @@ class GameVM {
     
     unowned var delegate: GameVMDelegate
     let gridCount = 4
-    private let cardRepository: CardRepository
+    private var cardRepository: CardRepository
     private let defaults: Defaults
     var cardArray: [Card] = []
     private var timer: Timer?
@@ -41,8 +41,8 @@ class GameVM {
     
     init(delegate: GameVMDelegate, cardRepository: CardRepository, defaults: Defaults) {
         self.delegate = delegate
-        cardRepository.numberOfCards = gridCount * gridCount
         self.cardRepository = cardRepository
+        self.cardRepository.numberOfCards = gridCount * gridCount
         self.cardArray = cardRepository.getCardData()
         self.defaults = defaults
     }

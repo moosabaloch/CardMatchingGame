@@ -13,7 +13,7 @@ class GameVC: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     lazy var viewModel: GameVM = {
-        GameVM(delegate: self, cardRepository: CardRepository(), defaults: Defaults.shared)
+        GameVM(delegate: self, cardRepository: CardRepositoryImp(), defaults: Defaults.shared)
     }()
     
     override func viewDidLoad() {

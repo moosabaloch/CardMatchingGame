@@ -7,11 +7,15 @@
 
 import Foundation
 
-class CardRepository {
-    private let isMocked: Bool
+protocol CardRepository {
+    var numberOfCards: Int { get set }
+    func getCardData() -> [Card]
+}
+
+class CardRepositoryImp: CardRepository {
     var numberOfCards: Int
-    init(isMocked: Bool = false, numberOfCards: Int = 16) {
-        self.isMocked = isMocked
+    
+    init(numberOfCards: Int = 16) {
         self.numberOfCards = numberOfCards
     }
     
@@ -35,9 +39,7 @@ class CardRepository {
                 }
             }
         }
-        if !self.isMocked {
-            cardsArray.shuffle()
-        }
+        cardsArray.shuffle()
         return cardsArray
     }
 }
