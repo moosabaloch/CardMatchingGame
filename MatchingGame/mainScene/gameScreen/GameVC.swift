@@ -13,7 +13,7 @@ class GameVC: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     lazy var viewModel: GameVM = {
-        GameVM(delegate: self, cardRepository: CardRepository(), defaults: Defaults.shared)
+        GameVM(delegate: self, cardRepository: CardRepositoryImp(), defaults: Defaults.shared)
     }()
     
     override func viewDidLoad() {
@@ -23,7 +23,19 @@ class GameVC: UIViewController {
         self.viewModel.scheduleTimer()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.updateBoxSize()
+    }
+    
     private func setupCollectionView() {
+        self.collectionView.register(UINib(nibName: CardCVCell.name, bundle: nil), forCellWithReuseIdentifier: CardCVCell.name)
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+    }
+    
+    
+    private func updateBoxSize() {
         let spacing: CGFloat = 8
         let layout = UICollectionViewFlowLayout()
         let cellMaxWH = (self.collectionView.bounds.width / self.viewModel.gridCount.toCGFloat) - spacing
@@ -32,9 +44,6 @@ class GameVC: UIViewController {
         layout.minimumLineSpacing = spacing / 2
         self.collectionView.contentInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
         self.collectionView.setCollectionViewLayout(layout, animated: false)
-        self.collectionView.register(UINib(nibName: CardCVCell.name, bundle: nil), forCellWithReuseIdentifier: CardCVCell.name)
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
     }
         
     @IBAction func actionRestart(_ sender: Any) {
